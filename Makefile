@@ -1,7 +1,7 @@
 .PHONY: update
 update: install
 	git add -A
-	git commit --allow-empty-message -m '' && git push
+	@git commit --allow-empty-message -m '' && git push || true
 
 .PHONY: install
 install: bootstrap neovim
