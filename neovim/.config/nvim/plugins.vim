@@ -18,11 +18,14 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim' , { 'as': 'dracula.vim' }
 
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/deoplete-clangx'
+Plug 'Shougo/neoinclude'
 Plug 'eagletmt/neco-ghc'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1

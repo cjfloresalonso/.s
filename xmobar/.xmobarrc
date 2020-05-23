@@ -1,0 +1,59 @@
+Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+       , additionalFonts = []
+       , bgColor = "#252526"
+       , fgColor = "#CCCCCC"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , overrideRedirect = True
+       , pickBroadest = False
+       , persistent = False
+       , border = NoBorder
+       , borderColor = "black"
+       , borderWidth = 1
+       , iconRoot = "."
+       , commands = [ Run DynNetwork ["-t","<fc=#d100d1><dev></fc>: <rx> <tx>",
+                                      "-S", "True"] 10
+                    , Run MultiCpu ["-L","60","-H","80",
+                                    "-S","True",
+                                    "-t","<fc=#e3468f>Cpu</fc>: <autototal>",
+                                    "--normal","yellow",
+                                    "--high","red"] 10
+                    , Run Memory ["-t","<usedratio>%",
+                                  "-n","yellow",
+                                  "-h","red",
+                                  "-H","90",
+                                  "-L","70"] 10
+                    , Run Swap ["-h","red",
+                                "-n","red",
+                                "-L","0",
+                                "-t","<usedratio>%"] 10
+                    , Run Battery ["--template","<fc=#00d1d1>Batt</fc>: <acstatus>",
+                                   "-L","10",
+                                   "-H","80",
+                                   "-l","red",
+                                   "-n","orange",
+                                   "-h","green",
+                                   "--",
+                                   "-o","<left>% (<timeleft>)",
+                                   "-O","Charging",
+                                   "-i","Charged"] 100
+                    , Run Date "%a %b %_d %Y <fc=#ce9178>%H:%M:%S</fc>" "date" 10
+                    , Run Volume "default" "Master" ["-t","<fc=#d7ba7d>Vol</fc>: <volume>% <status>",
+                                                     "-L","90",
+                                                     "-H","100",
+                                                     "-h","red",
+                                                     "-n","yellow"] 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "  %multicpu% | <fc=#8846e3>Mem/Swp</fc>: %memory% %swap% | %dynnetwork% } %StdinReader% \
+                    \{ %default:Master% | %battery% | %date%  "
+       , wmClass = "xmobar"
+       , wmName = "xmobar"
+       }

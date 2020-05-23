@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/cfa/csse4011/myoslib/tracking'
+let g:netrw_dirhist_9='/home/cfa/csse4011/myoslib/hci'
+let g:netrw_dirhist_8='/home/cfa/csse4011/pracs/prac2'
+let g:netrw_dirhist_7='/home/cfa/csse4011/ei-freertos/core_csiro'
+let g:netrw_dirhist_6='/home/cfa/csse4011/ei-freertos'
+let g:netrw_dirhist_5='/home/cfa/.local/bin'
+let g:netrw_dirhist_4='/home/cfa/coms4507/daemon/src'
+let g:netrw_dirhist_3='/home/cfa/coms4507/daemon'
+let g:netrw_dirhist_2='/home/cfa/csse4011/ei-freertos/pyclasses'
+let g:netrw_dirhist_1='/home/cfa/csse4011/ei-freertos/apps_test/cli_framework/src'
