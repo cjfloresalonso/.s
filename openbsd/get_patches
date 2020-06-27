@@ -1,0 +1,1 @@
+for p in `git ls-files -m`; do mkdir -p openbsd/`dirname $p`; git diff $p > openbsd/${p}.patch; done

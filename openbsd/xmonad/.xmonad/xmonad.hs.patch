@@ -1,0 +1,11 @@
+diff --git a/xmonad/.xmonad/xmonad.hs b/xmonad/.xmonad/xmonad.hs
+index 5a5f6b4..0ebcdd8 100644
+--- a/xmonad/.xmonad/xmonad.hs
++++ b/xmonad/.xmonad/xmonad.hs
+@@ -6,5 +6,4 @@ import XMonad.Hooks.DynamicLog
+ main = xmonad =<< xmobar conf
+ 
+ -- Main configuration, override the defaults to your liking.
+-conf = def { modMask = mod4Mask
+-           , terminal = "alacritty" }
++conf = def { modMask = mod4Mask }

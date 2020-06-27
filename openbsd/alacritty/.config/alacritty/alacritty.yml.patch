@@ -1,0 +1,29 @@
+diff --git a/alacritty/.config/alacritty/alacritty.yml b/alacritty/.config/alacritty/alacritty.yml
+index 76bbd2a..d7aa61a 100644
+--- a/alacritty/.config/alacritty/alacritty.yml
++++ b/alacritty/.config/alacritty/alacritty.yml
+@@ -8,19 +8,19 @@ env:
+ font:
+   # Normal (roman) font face
+   normal:
+-    family: Source Code Pro for Powerline
++    family: Spleen
+     style: normal
+   bold:
+-    family: Source Code Pro for Powerline
++    family: Spleen
+     style: bold
+   italic:
+-    family: Source Code Pro for Powerline
++    family: Spleen
+     style: italic
+   bold_italic:
+-    family: Source Code Pro for Powerline
++    family: Spleen
+     style: bold italic
+  
+-  size: 6.0
++  size: 10
+ 
+ # ...
+ 
