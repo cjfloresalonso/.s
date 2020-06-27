@@ -1,7 +1,7 @@
 # login shell setup
 
 # have tmux always start
-[ -n `command -v tmux` ] && [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+[ -n `command -v tmux` ] && [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
 
 # history cntl
 HISTCONTROL=ignoredups:ignorespace
