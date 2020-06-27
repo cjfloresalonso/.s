@@ -1,0 +1,90 @@
+! $OpenBSD: Xresources.in,v 1.2 2019/04/16 05:51:04 matthieu Exp $
+! ThinkPad colorscheme
+! Picture: https://icdn3.digitaltrends.com/image/lenovo-thinkpad-x260-pointer1-1500x1000.jpg
+! ColorThief: https://lokeshdhakar.com/projects/color-thief/
+!
+
+WIDTH=$(( ($(xrandr | awk ' /\*/ { print 1}' | cut -dx -f1)) / 2 ))
+HEIGHT=$(( ($(xrandr | awk ' /\*/ { print 1}' | cut -dx -f2)) / 2 ))
+
+#define WHITE   #EDF6E6
+#define BLACK   #252123
+#define RED     #DA9B9A
+#define BLUE    #7AADD9
+#define BROWN   #6E6967
+#define DKBROWN #54504F
+#define DKBLUE  #6187AD
+#define GREY    #54697F
+#define DKGREY  #4A566B
+
+xroot.background: BLACK
+
+!------------------------------------------------------------------------------
+! XLogin
+!
+
+xlogin.Login.allowRootLogin: false
+
+xlogin*greeting: CLIENTHOST
+xlogin.Login.namePrompt: \040login:\040
+xlogin.Login.greeting:
+xlogin.Login.fail: failed
+xlogin.Login.echoPassword: false
+xlogin.Login.passwdPrompt: passwd:\040
+
+xlogin.Login.Height:            120
+xlogin.Login.Width:             390
+xlogin.Login.x:                 570
+xlogin.Login.y:                 420
+xlogin*borderWidth:       0
+xlogin.Login.frameWidth:        0
+xlogin.Login.innerFrameWidth:   1
+xlogin.Login.sepWidth:          0
+
+xlogin.Login.background:  BLACK
+xlogin.Login.failColor:   RED
+xlogin.Login.foreground:  WHITE
+xlogin.Login.greetColor:  WHITE
+xlogin.Login.inpColor:    BLACK
+xlogin.Login.promptColor: WHITE
+xlogin.Login.hiColor:     WHITE
+xlogin.Login.shdColor:    WHITE
+
+xlogin.Login.face:       spleen-20
+xlogin.Login.failFace:   spleen-26
+xlogin.Login.greetFace:  spleen-0
+xlogin.Login.promptFace: spleen-26
+
+! ----------------------------------------------------------------------
+! XClock
+!
+
+xclock.dateFace:         spleen-24
+xclock.dateGeom:         +960+420
+xclock.dateStr:          %A %d %B %Y
+
+xclock.timeFace:         spleen-40
+xclock.timeGeom:         +960+460
+xclock.timeStr:          %H:%M
+
+xclock*background:       BLACK
+xclock*borderWidth:      0
+xclock*foreground:       WHITE
+
+xclock.Clock.analog:     false
+xclock.Clock.chime:      false
+xclock.Clock.render:     true
+xclock.Clock.twentyfour: true
+xclock.Clock.update:     10
+
+! ----------------------------------------------------------------------
+! XMessage
+!
+
+xmessage*background: BLACK
+xmessage*foreground: WHITE
+xmessage*borderWidth: 0
+xmessage*font: spleen-16
+xmessage*message.scrollHorizontal: Never
+xmessage*message.scrollVertical: Never
+xmessage*timeout: 0

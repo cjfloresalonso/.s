@@ -1,0 +1,47 @@
+#!/bin/sh
+# $OpenBSD: Xsetup_0,v 1.6 2019/06/29 13:33:06 espie Exp $
+xrandr --output default --dpi 96
+xbacklight -set 50
+
+# requires pkg_add terminus-font
+xset fp+ /usr/local/share/fonts/terminus
+
+XRES=$(xrdb -query)
+
+# set background color
+BG_COLOR=$(echo "$XRES" | awk '/xroot.background/ { print $2 }')
+xsetroot -solid $BG_COLOR
+
+# show the date and time as two different widgets
+for CLK in date time; do
+  FACE=$(echo "$XRES" | grep "xclock.${CLK}Face" | xargs | \
+    cut -d ' ' -f 2-)
+  GEOM=$(echo "$XRES" | grep "xclock.${CLK}Geom" | xargs | \
+    cut -d ' ' -f 2-)
+  STR=$(echo "$XRES"  | grep "xclock.${CLK}Str" | xargs | \
+    cut -d ' ' -f 2-)
+
+  xclock -face "$FACE" -geometry "$GEOM" -strftime "$STR" &
+done
+
+# show the Sleep / Restart / Shutdown bar
+# in case of sleep, pop xmessage again after waking up
+(
+while true; do
+  xmessage -geometry 300x32+810-32 \
+    -buttons "[ Sleep ]":20,"[ Restart ]":21,"[ Shutdown ]":22 ""
+  ACTION=$?
+  echo "Xmessage said: $ACTION"
+  if   [ $ACTION -eq 20 ]; then /usr/sbin/zzz;
+  elif [ $ACTION -eq 21 ]; then
+    xsetroot -cursor_name watch
+    /sbin/shutdown -r now
+  elif [ $ACTION -eq 22 ]; then
+    xsetroot -cursor_name watch
+    /sbin/shutdown -p now
+  else echo "Something bad happened to Xmessage.";
+  fi
+  # stop looping if xclock died (hopefully killed by GiveConsole)
+  if [ -z "$(pgrep -U root xclock)" ]; then break; fi
+done
+) &
