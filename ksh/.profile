@@ -1,5 +1,8 @@
 # login shell setup
 
+[ -z $EDITOR ] && export EDITOR=vi
+[ -z $VISUAL ] && export VISUAL=vi
+
 # have tmux always start
 [ -n `command -v tmux` ] && [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
 
