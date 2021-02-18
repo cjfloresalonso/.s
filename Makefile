@@ -6,7 +6,7 @@ bootstrap:
 	@command -v git nvim stow > /dev/null
 
 .PHONY: update
-update: install
+update: 
 	git add -A
 	@git commit --allow-empty-message -m '' && git push || true
 
