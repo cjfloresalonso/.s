@@ -4,7 +4,7 @@
 [ -z $VISUAL ] && export VISUAL=vi
 
 # have tmux always start
-[ -n `command -v tmux` ] && [ -z "$TMUX"  ] && { exec tmux new-session && exit;}
+[ -n `command -v tmux` ] && [ -z "$TMUX"  ] && exec tmux new-session && exit
 
 # history cntl
 HISTCONTROL=ignoredups:ignorespace
@@ -15,4 +15,7 @@ HISTSIZE=65535
 set -o vi		# vi mode
 set -o noclobber 	# accidental file clobbering
 set -o ignoreeof 	# accidental eof
-set -o nohup		# don't kill bg jobs
+# set -o nohup		# don't kill bg jobs
+
+alias tree='tree -aC'
+alias g=grep
