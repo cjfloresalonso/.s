@@ -66,6 +66,8 @@ ssource ~/.nmaps
 ssource /usr/share/bash-completion/bash_completion
 ssource /etc/bash_completion
 
+PATH=${HOME}/bin:${PATH}
+
 # colour
 NORMAL="\033[0m"
 RED="\033[31m"
