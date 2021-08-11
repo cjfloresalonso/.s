@@ -1,3 +1,6 @@
+# is this on a remote box?
+SSH_BOX=1
+
 # login shell setup
 
 [ -z $EDITOR ] && export EDITOR=vi
@@ -28,9 +31,26 @@ alias f="find . 2> /dev/null | grep "	# search files in pwd
 
 alias untar='tar -xvf'
 
+# safe source
+ssource () { [ -n $1 ] && [ -f $1 ] && source $1 || true; }
+
+ssource ~/.nmaps
+
 # colour
 NORMAL="\033[0m"
 RED="\033[31m"
 WHITE="\033[37;1m"
 
 PS1='`last=$? ; [ $last != 0 ] && echo -e "${NORMAL}[${RED}${last}${NORMAL}] "`'"${WHITE}\$ $NORMAL"
+
+function __setprompt
+{
+	local last=$?
+	PS1=""
+
+	[ $last -ne 0 ] && PS1+="${NORMAL}[${RED}${last}${NORMAL}] "
+	[ $SSH_BOX -ne 0 ] && PS1+="${NORMAL}\h"
+
+	PS1+="${WHITE}\$ ${NORMAL}"
+}
+PROMPT_COMMAND='__setprompt'
