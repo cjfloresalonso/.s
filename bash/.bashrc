@@ -4,7 +4,7 @@ case $- in
 esac
 
 # is this on a remote box?
-SSH_BOX=1
+SSH_BOX=0
 
 # login shell setup
 
